@@ -1,0 +1,186 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+:root {
+    /* color ................................................*/
+    --bg-color: rgb(2, 2, 2);
+    --primary-text-color: rgb(238, 238, 238);
+    --bg-btn-color: rgb(44, 43, 43);
+    --bg-task-color: #464444;
+    --delete-btn-color:rgb(242, 46, 46);
+
+    /*padding ...............*/
+    --nav-padding: 15px 30px;
+    --section-padding: 15px 30px;
+    --padding-s: 5px;
+    --padding-m: 10px;
+    --padding-l: 15px;
+    --pading-xl: 20px;
+    --padding-xxl: 25px;
+
+    /*Border Redious..........................*/
+    --border-radius-s: 5px;
+    --border-radius-m: 10px;
+    --border-radius-l: 15px;
+    --border-radius-xl: 20px;
+    --border-radius-xxl: 25px
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--primary-text-color);
+}
+
+main{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    padding: var(--nav-padding);
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background-color: var(--bg-color);
+    justify-content: space-between;
+}
+
+nav button {
+    background-color: var(--bg-btn-color);
+    color: var(--primary-text-color);
+    padding: var(--padding-m) var(--padding-l);
+    border-radius: var(--border-radius-m);
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+section{
+    padding: var(--section-padding);
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+    gap: var(--padding-xxl);
+    flex-wrap: wrap;
+}
+
+section .task-column{
+background-color: var(--bg-btn-color);
+flex: 1 1 300px;
+min-width: 280px;
+/* max-width: 500px; */
+padding: var(--padding-m);
+display: flex;
+flex-direction: column;
+gap: var(--padding-m);
+border-radius: var(--border-radius-m);
+transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+ /* word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal; */
+}
+
+section .task-column.hover-over{
+    border: 2px dashed var(--primary-text-color);
+    scale: 1.03;
+}
+
+section .task-column .heading{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+section .task-column .task{
+background-color: var(--bg-task-color);
+padding: var(--padding-m);
+border-radius: var(--border-radius-m);
+display: flex;
+flex-direction: column;
+gap: var(--padding-s);
+cursor: grab;
+overflow-wrap: break-word;
+}
+
+section .task-column .task button{
+    align-self: flex-end;
+    cursor: pointer;
+    padding: var(--padding-s) var(--padding-m);
+    border-radius: var(--border-radius-s);
+    border: none;
+    outline: none;
+    background-color:var(--delete-btn-color);
+    color: var(--primary-text-color);
+}
+
+
+.modal{
+    /* background-color: yellow; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.active{
+    display: flex;
+}
+
+.modal .bg{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(75, 75, 75, 0.404);
+    backdrop-filter: blur(5px);
+}
+.modal .center{
+    background-color: var(--bg-btn-color);
+    padding: var(--padding-xxl);
+    border-radius: var(--border-radius-m);
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-m);
+    z-index: 10;
+    max-width: 400px;
+}
+
+.modal .center input, .modal .center textarea, .modal .center select{
+    background-color: var(--bg-task-color);
+    border: none;
+    outline: none;
+    padding: var(--padding-m);
+    border-radius: var(--border-radius-s);
+    color: var(--primary-text-color);
+    font-size: 1rem;
+    resize: none;
+}
+
+.modal .center button{
+    background-color: var(--bg-task-color);
+    color: var(--primary-text-color);
+    padding: var(--padding-m) var(--padding-l);
+    border-radius: var(--border-radius-m);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-weight: bold;
+    width: fit-content;
+    align-self: center;
+    
+}
